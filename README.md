@@ -230,3 +230,5 @@ Computer Science Student | Odoo Development Learner | Web Development & Data Ana
 ⭐ If you find this project useful for learning Odoo development, feel free to explore the code and share your feedback.
 
 *Built as part of my ongoing journey in software development, ERP systems, and practical technology projects.*
+#   o d o o - r e a l - e s t a t e - w o r k s h o p  
+ 
