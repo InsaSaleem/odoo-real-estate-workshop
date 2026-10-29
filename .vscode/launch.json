@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Odoo19",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "C:\\Program Files\\Odoo 19.0.20260714\\python\\python.exe",
+            "program": "${workspaceFolder}\\odoo-bin",
+            "console": "integratedTerminal",
+            "args": [ "--config=${workspaceFolder}\\odoo.conf", "-d", "admin", "-u", "estate" ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "redirectOutput": true
+        }
+    ]
+}
