@@ -1,139 +1,158 @@
-# 🏡 Odoo Real Estate Management Module
+# 🏡 Real Estate Management Module — Odoo 19
 
-A custom **Real Estate Management Module developed using Odoo 19**, as part of a three-day Odoo development workshop. This project explores Odoo's ORM, custom models, XML views, menu actions, relational fields, access control, and business logic.
+A custom **Real Estate Management module built with Odoo 19** as part of a three-day Odoo development workshop. This project demonstrates practical experience with Odoo's modular architecture, ORM, Python models, XML views, relational fields, access control, and business logic.
 
-The module provides a foundation for managing property records, property types, tags, buyers, salespersons, and property offers within the Odoo framework.
+The module provides functionality for managing properties, property types, tags, buyers, salespersons, and property offers within an existing Odoo environment.
 
-## 📌 Project Overview
+## 📋 Table of Contents
 
-The purpose of this project is to gain practical experience in developing custom business applications using the Odoo framework. It demonstrates how Python models, XML-based user interfaces, and access-control rules work together to create an integrated application.
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Project Structure](#-project-structure)
+- [Prerequisites](#-prerequisites)
+- [Installation and Setup](#-installation-and-setup)
+- [Core Odoo Concepts](#-core-odoo-concepts)
+- [Future Enhancements](#-future-enhancements)
+- [Learning Outcomes](#-learning-outcomes)
+- [Workshop Context](#-workshop-context)
+- [Author](#-author)
 
-The project follows Odoo's modular architecture and uses its built-in ORM to define data models and relationships between properties, offers, contacts, and users.
+## 📌 Overview
 
-## ✨ Key Features
+The Real Estate Management module is a learning project designed to explore how custom business applications can be developed within the Odoo ERP framework.
+
+It follows Odoo's modular architecture, combining Python model definitions, XML-based user interfaces, relational data structures, and access-control configuration to create a property management application.
+
+The project focuses on foundational Odoo development practices and provides a starting point for further customization and enhancement.
+
+## ✨ Features
 
 ### 🏠 Property Management
+
 - Create and manage real estate property records.
 - Store property descriptions, availability dates, expected prices, and selling prices.
-- Record the number of bedrooms, living area, and garden area.
-- Calculate total property area automatically from living and garden areas.
-- Track property status through a selection field.
+- Track bedrooms, living area, and garden area.
+- Calculate total property area using living and garden areas.
+- Manage property lifecycle status.
 
 ### 🗂️ Property Types and Tags
-- Organize properties by property type.
-- Assign tags to properties for easier categorization.
-- Configure color-coded property tags.
-- Apply uniqueness constraints to property type and tag names.
 
-### 🤝 Offer Management
-- Create property offers associated with properties and buyers.
+- Categorize properties by type.
+- Assign multiple tags to property records.
+- Configure color-coded tags.
+- Enforce unique names for property types and tags.
+
+### 🤝 Property Offer Management
+
+- Create offers linked to properties and buyers.
 - Record offer prices and offer statuses.
-- Implement actions to accept or refuse offers.
+- Accept or refuse offers through model actions.
 - Update the associated property's buyer, selling price, and status when an offer is accepted.
-- Include validation checks for offer-related business rules.
+- Apply validation rules to offer-related business logic.
 
-### 👥 Relationships and Additional Information
-- Link properties with salesperson and buyer records.
-- Use relational fields to connect properties, types, tags, offers, users, and contacts.
-- Display additional property information through organized form sections.
+### 👥 Relational Data Management
 
-### 🖥️ Odoo User Interface
-- XML-defined list and form views for property records.
-- Dedicated views for property types, tags, and offers.
-- Menu entries and window actions for navigating the application.
-- A status bar for displaying property states.
+- Associate properties with salespersons and buyers.
+- Connect properties to types, tags, and offers.
+- Use Odoo relational fields to maintain connections between business records.
+- Organize property information into structured form sections.
+
+### 🖥️ User Interface
+
+- XML-defined list and form views.
+- Dedicated views for properties, property types, tags, and offers.
+- Window actions and menu entries for application navigation.
+- Status bars for displaying property states.
+- Additional user-related view configuration.
 
 ### 🔐 Access Control and Data Validation
-- Configure model-level permissions through `ir.model.access.csv`.
-- Define access for internal users using Odoo's built-in user group.
-- Apply database constraints to validate property prices and enforce unique names.
 
-## 🛠️ Technologies Used
+- Configure model permissions through `ir.model.access.csv`.
+- Define access rules for internal users.
+- Apply database constraints for price validation and unique names.
+- Use Odoo model logic to validate business operations.
+
+## 🛠️ Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| Odoo 19 | ERP framework and application platform |
-| Python | Business logic and model definitions |
-| XML | Views, actions, and menu configuration |
-| PostgreSQL | Odoo's underlying database |
-| Odoo ORM | Database operations and model relationships |
-| CSV | Model access-control configuration |
-| Visual Studio Code | Development environment |
-| Git and GitHub | Version control and project documentation |
+| **Odoo 19** | ERP framework and application platform |
+| **Python** | Business logic and model definitions |
+| **Odoo ORM** | Database operations and model relationships |
+| **XML** | Views, actions, and menu configuration |
+| **PostgreSQL** | Database backend |
+| **CSV** | Model access-control configuration |
+| **Git & GitHub** | Version control and project hosting |
+| **Visual Studio Code** | Development environment |
 
 ## 📂 Project Structure
 
 ```text
 odoo-real-estate-workshop/
-│
-├── estate/
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── estate_property.py
-│   │   ├── estate_property_offer.py
-│   │   ├── estate_property_tag.py
-│   │   └── estate_property_type.py
-│   │
-│   ├── security/
-│   │   └── ir.model.access.csv
-│   │
-│   ├── views/
-│   │   ├── estate_menus.xml
-│   │   ├── estate_property_views.xml
-│   │   ├── estate_property_offer_views.xml
-│   │   ├── estate_property_tag_views.xml
-│   │   ├── estate_property_type_views.xml
-│   │   └── res_users_views.xml
-│   │
-│   ├── __init__.py
-│   └── __manifest__.py
-│
-└── README.md
+└── estate/
+    ├── models/
+    │   ├── __init__.py
+    │   ├── estate_property.py
+    │   ├── estate_property_offer.py
+    │   ├── estate_property_tag.py
+    │   └── estate_property_type.py
+    ├── security/
+    │   └── ir.model.access.csv
+    ├── views/
+    │   ├── estate_menus.xml
+    │   ├── estate_property_views.xml
+    │   ├── estate_property_offer_views.xml
+    │   ├── estate_property_tag_views.xml
+    │   ├── estate_property_type_views.xml
+    │   └── res_users_views.xml
+    ├── __init__.py
+    └── __manifest__.py
 ```
 
 ## ⚙️ Prerequisites
 
-Before installing the module, ensure you have:
+Before installing the module, ensure that you have:
 
 - Odoo 19 installed and configured.
 - Python available in your environment.
 - PostgreSQL configured for your Odoo installation.
-- Access to an Odoo database.
-- Git, if you want to clone the repository.
+- An accessible Odoo database.
+- Git installed if you intend to clone the repository.
 
-**Note:** This project is intended to be installed as a custom Odoo addon within an existing Odoo environment, rather than as a standalone Python application.
+> **Note:** This is a custom Odoo addon, not a standalone Python application. It must be installed within an existing Odoo environment.
 
 ## 🚀 Installation and Setup
 
 ### 1. Clone the Repository
 
-Open your terminal and run:
+Open a terminal and run:
 
 ```bash
 git clone https://github.com/InsaSaleem/odoo-real-estate-workshop.git
 ```
 
-Navigate to the repository:
+Navigate to the cloned repository:
 
 ```bash
 cd odoo-real-estate-workshop
 ```
 
-### 2. Copy the Module into Your Odoo Addons Directory
+### 2. Configure the Addons Directory
 
-Copy the `estate` folder into a directory included in your Odoo `addons_path`.
+Copy the `estate` directory into an Odoo addons directory, or keep it in a separate custom addons directory.
 
-For example, on a Windows installation:
+For example, on Windows:
 
 ```text
 C:\Program Files\Odoo 19.0\server\addons\estate
 ```
 
-Alternatively, you can keep the module in a separate custom addons directory and add that directory to your Odoo configuration.
+Alternatively, configure a separate custom addons directory in your Odoo configuration file and ensure it is included in `addons_path`.
 
 ### 3. Verify the Module Files
 
-Make sure the `estate` folder contains:
+Ensure that the `estate` directory contains:
 
 - `__manifest__.py`
 - `__init__.py`
@@ -141,52 +160,70 @@ Make sure the `estate` folder contains:
 - `views/`
 - `security/`
 
-The manifest declares the module dependency and lists the XML and CSV files that Odoo must load.
+The manifest defines the module's metadata, dependencies, and data files.
 
-### 4. Restart the Odoo Server
+### 4. Restart Odoo
 
-Restart your Odoo server after adding the module so the server can detect the custom addon.
+Restart the Odoo server after placing the module in the configured addons directory.
 
 ### 5. Update the Apps List
 
-1. Log in to your Odoo database.
+1. Sign in to your Odoo database.
 2. Enable Developer Mode.
 3. Open the Apps menu.
-4. Update the Apps List.
-5. Search for **Real Estate**.
+4. Select **Update Apps List**.
+5. Search for the Real Estate module.
 
 ### 6. Install the Module
 
-Select the Real Estate module and click **Install**.
+Select the module and click **Install**.
 
-Once installed successfully, open the module's menus to access the available property management features.
+After installation, use the configured menus to access the property management features.
 
-### Alternative: Install or Update Through the Command Line
+### Alternative: Install or Update from the Command Line
 
-From your Odoo server directory, use the appropriate Python executable and configuration file:
+From your Odoo server directory, run the following command using the appropriate Python executable and configuration file:
+
+```bash
+python odoo-bin -c odoo.conf -d YOUR_DATABASE_NAME -i estate
+```
+
+Use `-i estate` for initial installation. To update an already installed module, use:
 
 ```bash
 python odoo-bin -c odoo.conf -d YOUR_DATABASE_NAME -u estate
 ```
 
-Replace `YOUR_DATABASE_NAME` with your actual Odoo database name. The `-u estate` option updates the module; use `-i estate` instead if you are installing it for the first time through the command line.
+Replace `YOUR_DATABASE_NAME` with your actual database name. These commands assume that Odoo can locate the module through its configured addons path and connect to the database.
 
-The command assumes that `estate` is available through the configured addons path and that the server can connect to the specified database.
+## 🧠 Core Odoo Concepts
 
-## 🧠 Concepts Practiced
+This project provides practical exposure to:
 
-This project provided practical exposure to the following Odoo development concepts:
-
-- **Custom Models:** Creating business entities with Odoo's ORM.
+- **Custom Models:** Defining business entities using Odoo's ORM.
 - **Field Types:** Working with character, text, date, numeric, selection, and relational fields.
-- **Computed Fields:** Using `@api.depends` to calculate total property area.
-- **Relational Data:** Implementing `Many2one`, `Many2many`, and `One2many` relationships.
-- **Business Logic:** Defining Python methods and validation rules for property offers.
-- **XML Views:** Designing list and form views for Odoo models.
+- **Computed Fields:** Calculating property area with `@api.depends`.
+- **Relational Fields:** Using `Many2one`, `Many2many`, and `One2many` relationships.
+- **Business Logic:** Implementing actions and validation rules for property offers.
+- **XML Views:** Creating list and form interfaces.
 - **Window Actions and Menus:** Connecting application navigation to model views.
-- **Access Control:** Configuring model permissions through CSV files.
-- **Data Integrity:** Applying database constraints to enforce business rules.
-- **Module Configuration:** Defining dependencies and data files through `__manifest__.py`.
+- **Access Control:** Defining model permissions through CSV configuration.
+- **Data Integrity:** Applying constraints to enforce business rules.
+- **Module Configuration:** Managing dependencies and data files through `__manifest__.py`.
+
+## 🔮 Future Enhancements
+
+Potential improvements include:
+
+- Advanced property search, filtering, and sorting.
+- More comprehensive property lifecycle management.
+- Additional validation for property offers and transactions.
+- Property statistics and dashboard views.
+- Automated tests for models and business logic.
+- Role-specific access permissions.
+- Improved form layouts and user experience.
+
+These items are proposed enhancements and are not represented as completed features.
 
 ## 🎯 Learning Outcomes
 
@@ -195,26 +232,13 @@ Through this workshop project, I gained practical experience in:
 - Understanding Odoo's modular architecture and development workflow.
 - Creating custom models and defining relationships between business entities.
 - Connecting Python business logic with XML-based interfaces.
-- Working with computed fields, model constraints, and validation methods.
-- Configuring module access permissions and application navigation.
-- Understanding how custom addons integrate with an existing Odoo installation.
-
-## 🔮 Future Improvements
-
-Potential enhancements for future development include:
-
-- Adding advanced property search and filtering.
-- Improving property lifecycle transitions and offer validation.
-- Introducing additional property statistics and dashboard views.
-- Adding automated tests for models and business logic.
-- Enhancing access permissions with role-specific security rules.
-- Improving form layouts and user experience.
-
-These are potential future enhancements and are not claimed as completed features.
+- Implementing computed fields, model constraints, and validation methods.
+- Configuring access permissions and application navigation.
+- Integrating a custom addon into an existing Odoo installation.
 
 ## 📚 Workshop Context
 
-This repository documents practical development work completed during a **three-day Odoo workshop**. It serves as a learning portfolio demonstrating my introduction to ERP customization and hands-on experience with Odoo module development.
+This repository documents development work completed during a **three-day Odoo development workshop**. It serves as a learning portfolio demonstrating foundational knowledge of ERP customization and hands-on experience building a custom Odoo module.
 
 ## 👩‍💻 Author
 
@@ -222,16 +246,11 @@ This repository documents practical development work completed during a **three-
 
 Computer Science Student | Odoo Development Learner | Web Development & Data Analytics Enthusiast
 
-- **GitHub:** [InsaSaleem](https://github.com/InsaSaleem)
-- **Repository:** [odoo-real-estate-workshop](https://github.com/InsaSaleem/odoo-real-estate-workshop)
+- **GitHub Profile:** [InsaSaleem](https://github.com/InsaSaleem)
+- **Project Repository:** [odoo-real-estate-workshop](https://github.com/InsaSaleem/odoo-real-estate-workshop)
 
 ---
 
-⭐ If you find this project useful for learning Odoo development, feel free to explore the code and share your feedback.
+⭐ If you find this project useful for learning Odoo development, feel free to explore the source code and share your feedback.
 
-*Built as part of my ongoing journey in software development, ERP systems, and practical technology projects.*
-#   o d o o - r e a l - e s t a t e - w o r k s h o p  
- #   o d o o - r e a l - e s t a t e - w o r k s h o p  
- #   o d o o - r e a l - e s t a t e - w o r k s h o p  
- #   o d o o - r e a l - e s t a t e - w o r k s h o p  
- 
+*Built as part of my ongoing learning journey in software development and ERP systems.*
